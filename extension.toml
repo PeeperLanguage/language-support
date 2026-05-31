@@ -1,0 +1,31 @@
+id = "peeper"
+name = "Peeper language support"
+description = "Peeper language support for Zed"
+version = "0.0.1"
+schema_version = 1
+authors = ["itsfuad"]
+repository = "https://github.com/PeeperLanguage/peeper-language-support"
+
+languages = ["languages/peeper", "languages/peeper-manifest", "languages/peeper-lockfile"]
+capabilities = []
+
+[lib]
+kind = "Rust"
+version = "0.2.0"
+
+[grammars.peeper]
+repository = "https://github.com/PeeperLanguage/tree-sitter-peeper"
+rev = "master"
+
+[grammars.peeper_manifest]
+repository = "https://github.com/PeeperLanguage/tree-sitter-manifest"
+rev = "master"
+
+[grammars.peeper_lockfile]
+repository = "https://github.com/PeeperLanguage/tree-sitter-lockfile"
+rev = "master"
+
+[language_servers.peeper]
+name = "Peeper LSP"
+languages = ["Peeper"]
+

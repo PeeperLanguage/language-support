@@ -1,0 +1,13 @@
+name = "Peeper Lockfile"
+grammar = "peeper_lockfile"
+path_suffixes = ["peep.lock"]
+first_line_pattern = "^\\s*\\{"
+line_comments = []
+tab_size = 2
+hard_tabs = false
+
+brackets = [
+  { start = "{", end = "}", close = true, newline = true },
+  { start = "[", end = "]", close = true, newline = true },
+  { start = "\"", end = "\"", close = true, newline = false, not_in = ["comment"] },
+]

@@ -1,0 +1,13 @@
+name = "Peeper Manifest"
+grammar = "peeper_manifest"
+path_suffixes = ["peep.toml"]
+first_line_pattern = "^\\s*\\[package\\]"
+line_comments = ["# "]
+tab_size = 2
+hard_tabs = false
+
+brackets = [
+  { start = "{", end = "}", close = true, newline = true },
+  { start = "[", end = "]", close = true, newline = true },
+  { start = "\"", end = "\"", close = true, newline = false, not_in = ["comment"] },
+]
