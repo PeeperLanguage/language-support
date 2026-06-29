@@ -1,5 +1,6 @@
+(doc_comment) @comment.doc
 (line_comment) @comment
-(block_comment) @comment.doc
+(block_comment) @comment
 
 (string_literal) @string
 (char_literal) @constant
@@ -61,6 +62,7 @@
   "!!"
   "?"
   "??"
+  "@"
   "^"
   "+"
   "++"
@@ -90,6 +92,7 @@
 (range_expression ":" @operator)
 
 (attribute
+  "#" @punctuation.special
   name: (identifier) @attribute)
 
 (struct_declaration
