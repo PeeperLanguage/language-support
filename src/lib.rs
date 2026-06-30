@@ -8,7 +8,7 @@ struct PeeperBinary {
 struct PeeperExtension;
 
 impl PeeperExtension {
-    const LANGUAGE_SERVER_ID: &'static str = "peeper-language-server";
+    const LANGUAGE_SERVER_ID: &'static str = "peepls";
 
     fn language_server_binary(
         &self,
@@ -41,7 +41,7 @@ impl PeeperExtension {
             });
         }
 
-        Err("The Peeper language server binary (peeper) is not available in your environment (PATH). Configure `lsp.peeper.binary.path` or install `peeper`.".to_string())
+        Err("The Peeper language server binary (peeper) is not available in your environment (PATH).".to_string())
     }
 }
 
