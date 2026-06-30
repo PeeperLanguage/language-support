@@ -8,7 +8,7 @@ struct PeeperBinary {
 struct PeeperExtension;
 
 impl PeeperExtension {
-    const LANGUAGE_SERVER_ID: &'static str = "peepls";
+    const LANGUAGE_SERVER_ID: &'static str = "peeper-language-server";
 
     fn language_server_binary(
         &self,

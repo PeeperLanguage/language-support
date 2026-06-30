@@ -1,4 +1,4 @@
-id = "peepls"
+id = "peeper"
 name = "Peeper language support"
 description = "Peeper language support for Zed"
 version = "0.0.1"
