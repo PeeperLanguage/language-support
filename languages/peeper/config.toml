@@ -1,7 +1,7 @@
 name = "Peeper"
 grammar = "peeper"
 path_suffixes = ["peep"]
-line_comments = ["// "]
+line_comments = ["/// ", "// "]
 block_comments = [["/*", "*/"]]
 tab_size = 4
 hard_tabs = false
