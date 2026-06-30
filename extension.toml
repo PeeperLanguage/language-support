@@ -25,7 +25,7 @@ rev = "master"
 repository = "https://github.com/PeeperLanguage/tree-sitter-lockfile"
 rev = "master"
 
-[language_servers.peeper]
+[language_servers.peepls]
 name = "Peeper LSP"
 languages = ["Peeper"]
 
