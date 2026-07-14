@@ -13,9 +13,7 @@
   "import"
   "type"
   "fn"
-  "impl"
   "struct"
-  "interface"
   "enum"
   "union"
   "error"
@@ -41,12 +39,13 @@
   (is)
   (comptime)
   (move)
+  (iface)
 ] @keyword
 
 ((identifier) @keyword
  (#any-of? @keyword
   "import" "type" "const" "let" "mut" "fn"
-  "impl" "struct" "interface" "enum" "union" "error"
+  "struct" "iface" "enum" "union" "error"
   "if" "else" "match" "for" "in" "is"
   "break" "continue" "return" "comptime" "move"
   "catch" "as" "defer" "panic" "unsafe"))
@@ -63,6 +62,7 @@
   "?"
   "??"
   "@"
+  "&"
   "^"
   "+"
   "++"
@@ -106,14 +106,6 @@
 
 (type_declaration
   name: (identifier) @type)
-
-(impl_declaration
-  target: (named_type (identifier) @type))
-
-(impl_declaration
-  target: (named_type
-    (scoped_identifier
-      name: (identifier) @type)))
 
 (named_type (identifier) @type
  (#not-eq? @type "map"))
