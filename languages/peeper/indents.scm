@@ -7,7 +7,6 @@
   (struct_declaration)
   (interface_declaration)
   (enum_declaration)
-  (impl_declaration)
   (struct_type)
   (interface_type)
   (enum_type)
