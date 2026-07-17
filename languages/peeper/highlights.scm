@@ -40,6 +40,7 @@
   (comptime)
   (move)
   (iface)
+  (from)
 ] @keyword
 
 ((identifier) @keyword
@@ -47,7 +48,7 @@
   "import" "type" "const" "let" "mut" "fn"
   "struct" "iface" "enum" "union" "error"
   "if" "else" "match" "for" "in" "is"
-  "break" "continue" "return" "comptime" "move"
+  "break" "continue" "return" "comptime" "move" "from"
   "catch" "as" "defer" "panic" "unsafe"))
 
 [
@@ -206,6 +207,9 @@
 
 (typed_parameter
   name: (identifier) @variable.parameter)
+
+(return_origin_clause
+  source: (identifier) @variable.parameter)
 
 (lambda_parameter
   name: (identifier) @variable.parameter)
