@@ -3,6 +3,7 @@
 (block_comment) @comment
 
 (string_literal) @string
+(c_string_literal) @string
 (char_literal) @constant
 (byte_literal) @constant
 (number_literal) @number
