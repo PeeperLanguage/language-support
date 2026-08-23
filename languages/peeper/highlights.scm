@@ -238,3 +238,25 @@
 
 (named_field_initializer
   name: (identifier) @property)
+
+(enum_variant
+  name: (identifier) @constructor)
+
+(variant_case
+  path: (scoped_identifier
+    scope: (identifier)
+    name: (identifier) @constructor))
+
+(scoped_identifier
+  scope: (generic_type)
+  name: (identifier) @constructor)
+
+(scoped_identifier
+  scope: (scoped_identifier)
+  name: (identifier) @constructor)
+
+(variant_pattern_field
+  name: (identifier) @property)
+
+(variant_pattern_field
+  binding: (identifier) @variable)
