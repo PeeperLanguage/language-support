@@ -10,6 +10,7 @@ This extension currently provides:
 - indentation rules
 - `.peep` file recognition
 - LSP wiring (`peeper lsp`)
+- `with` enum payload construction and match-pattern highlighting
 
 ## LSP command resolution
 

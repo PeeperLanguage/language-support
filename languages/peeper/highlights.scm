@@ -38,6 +38,7 @@
   (mut)
   (in)
   (is)
+  (with)
   (comptime)
   (move)
   (iface)
@@ -48,7 +49,7 @@
  (#any-of? @keyword
   "import" "type" "const" "let" "mut" "fn"
   "struct" "iface" "enum" "union" "error"
-  "if" "else" "match" "for" "in" "is"
+  "if" "else" "match" "for" "in" "is" "with"
   "break" "continue" "return" "comptime" "move" "from"
   "catch" "as" "defer" "panic" "unsafe"))
 
