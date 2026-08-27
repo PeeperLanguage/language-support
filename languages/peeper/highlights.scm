@@ -45,14 +45,6 @@
   (from)
 ] @keyword
 
-((identifier) @keyword
- (#any-of? @keyword
-  "import" "type" "const" "let" "mut" "fn"
-  "struct" "iface" "enum" "union" "error"
-  "if" "else" "match" "for" "in" "is" "with"
-  "break" "continue" "return" "comptime" "move" "from"
-  "catch" "as" "defer" "panic" "unsafe"))
-
 [
   "="
   "+="
@@ -261,3 +253,11 @@
 
 (variant_pattern_field
   binding: (identifier) @variable)
+
+((identifier) @keyword
+ (#any-of? @keyword
+  "import" "type" "const" "let" "mut" "fn"
+  "struct" "iface" "enum" "union" "error"
+  "if" "else" "match" "for" "in" "is" "with"
+  "break" "continue" "return" "comptime" "move" "from"
+  "catch" "as" "defer" "panic" "unsafe"))
