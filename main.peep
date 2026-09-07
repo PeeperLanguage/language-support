@@ -1,4 +1,34 @@
-// main function
+struct Point {
+    x: i32,
+    y: i32,
+}
+
+struct Box<T> {
+    value: T,
+}
+
+enum Result<T> {
+    Ok: T,
+    Pending,
+}
+
 fn main() {
-	print("Hello world");
+    let point = Point.{ x = 1, y = 2 };
+    let inferred: Point = .{ x = 1, y = 2 };
+    let boxed = Box<Point>.{ value = point };
+    let named = Result<Point>::Ok with Point.{ x = 1, y = 2 };
+    let inferred_payload = Result<Point>::Ok with .{ x = 1, y = 2 };
+    if point.x == Point.{ x = 1, y = 2 }.x {
+        print("Equal x");
+    }
+}
+
+// Syntax-only examples: qualified types and methods need matching declarations.
+fn qualified() {
+    let point = geometry::Point.{ x = 1, y = 2 };
+    let boxed = pkg::Box<i32>.{ value = 1 };
+    let deep = pkg::geometry::Point.{};
+    let scoped = Outer<i32>::Inner.{};
+    if pkg::Box<i32>.{ value = 1 }.ready() {}
+    for item in pkg::Box<i32>.{ value = 1 }.items() {}
 }
