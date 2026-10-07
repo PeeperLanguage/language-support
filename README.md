@@ -14,9 +14,9 @@ This extension currently provides:
 
 ## Struct literals and grammar integration
 
-Named struct literals use `Point.{ x = 1, y = 2 }`, replacing `.Point{ x = 1, y = 2 }`. Generic and qualified forms include `Box<i32>.{ value = 1 }` and `geometry::Point.{ x = 1 }`. Inferred `.{ ... }`, `field = value`, and enum `Result<Point>::Ok with Point.{ x = 1 }` / `with .{ x = 1 }` syntax are unchanged. See `main.peep` for parsing/highlighting examples, including control headers.
+Named struct literals use `Point.{ x = 1, y = 2 }`. Generic and qualified forms include `Box<i32>.{ value = 1 }` and `geometry::Point.{ x = 1 }`. Inferred literals use `.{ ... }`, fields use `field = value`, and enum payloads use `Result<Point>::Ok with Point.{ x = 1 }` or `with .{ x = 1 }`. See `main.peep` for parsing/highlighting examples, including control headers.
 
-`extension.toml` currently tracks remote grammar `master`, not an immutable revision. `grammars/` has no checked-in local grammar integration. Changes in a sibling `tree-sitter-peeper` checkout are **not** automatically used by Zed. Once the grammar migration is published, update `grammars.peeper.rev` to the actual published commit and rebuild/reinstall the extension. Until then, the remote grammar may not recognize named literals. No unpublished revision is substituted here.
+`extension.toml` loads the published `tree-sitter-peeper` grammar from remote `master`. Local parser/query tests use the sibling grammar checkout; Zed fetches the revision configured in `extension.toml`.
 
 To validate these queries and examples against the sibling grammar without changing the remote revision, run from `../tree-sitter-peeper`:
 
@@ -39,7 +39,7 @@ cargo build --offline --target wasm32-wasip2
 
 The Python tests require the sibling checkout and its `npm`-installed Tree-sitter CLI. They parse `main.peep`, compile all Peeper queries, and check type/property/dot/enum captures, including that qualified struct type names are not captured as enum constructors. Cargo builds require cached dependencies for `--offline` and the installed `wasm32-wasip2` target.
 
-This checks local parser/query compatibility and the Rust extension, not Zed's remote grammar fetch or an installed editor session. Autocomplete remains outside this migration; LSP behavior depends on the separately updated compiler.
+These checks cover local parser/query compatibility and the Rust extension. Editor-session behavior requires Zed validation. Completion behavior is supplied by the compiler LSP.
 
 ## LSP command resolution
 
