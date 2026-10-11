@@ -32,3 +32,27 @@ fn qualified() {
     if pkg::Box<i32>.{ value = 1 }.ready() {}
     for item in pkg::Box<i32>.{ value = 1 }.items() {}
 }
+
+// Payload names, patterns, destructuring and `orelse`.
+enum Shape { Circle: struct { radius: i32, scale: i32 }, Code: i32, Empty }
+enum Slot { Value: ?i32, Inner: Shape, Free }
+struct Pair { first: i32, tag: i32, rest: i32 }
+
+fn read_slot(slot: Slot) -> i32 {
+    match slot {
+        Slot::Value with none => { return 0; }
+        Slot::Value with value => { return value; }
+        Slot::Inner with Shape::Circle with .{ radius, scale as factor } => { return radius * factor; }
+        Slot::Inner => { return 1; }
+        _ => { return 2; }
+    }
+}
+
+fn read_shape(shape: Shape, maybe: ?i32, pair: Pair) -> i32 {
+    if &shape is Shape::Circle { return shape.radius; }
+    if !(shape is Shape::Code) { return 0; }
+    let .{ first as head, tag, _ } = pair;
+    let count = maybe orelse head;
+    let item = maybe orelse { return tag; };
+    return shape + count + item;
+}

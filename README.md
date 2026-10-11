@@ -10,7 +10,7 @@ This extension currently provides:
 - indentation rules
 - `.peep` file recognition
 - LSP wiring (`peeper lsp`)
-- `with` enum payload construction and match-pattern highlighting
+- `with` enum payload construction and match patterns (`Case with none`, `Case with name`, `Case with .{ field as name }`), the `_` arm, `let .{ ... } = value;` and `orelse`
 
 ## Struct literals and grammar integration
 

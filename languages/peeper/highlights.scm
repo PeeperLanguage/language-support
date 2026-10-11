@@ -26,6 +26,7 @@
   "continue"
   "return"
   "catch"
+  "orelse"
   "as"
   "defer"
   "panic"
@@ -243,11 +244,16 @@
   scope: [(generic_type) (scoped_identifier)]
   name: (identifier) @constructor)
 
-(variant_pattern_field
+(variant_pattern
+  payload: (identifier) @variable)
+
+(destructure_field
   name: (identifier) @property)
 
-(variant_pattern_field
+(destructure_field
   binding: (identifier) @variable)
+
+(fallback_pattern) @variable.special
 
 ((identifier) @keyword
  (#any-of? @keyword
@@ -255,4 +261,4 @@
   "struct" "iface" "enum" "union" "error"
   "if" "else" "match" "for" "in" "is" "with"
   "break" "continue" "return" "comptime" "move" "from"
-  "catch" "as" "defer" "panic" "unsafe"))
+  "catch" "orelse" "as" "defer" "panic" "unsafe"))
