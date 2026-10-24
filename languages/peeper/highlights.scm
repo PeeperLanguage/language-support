@@ -136,12 +136,12 @@
 
 ((identifier) @type.builtin
  (#any-of? @type.builtin
-  "bool" "char" "string" "str" "Self"
-  "u8" "u16" "u32" "u64" "usize"
-  "i8" "i16" "i32" "i64" "isize"
+  "bool" "char" "string" "str" "cstr" "Self"
+  "u8" "u16" "u32" "u64" "u128" "usize"
+  "i8" "i16" "i32" "i64" "i128" "isize"
   "f32" "f64" "void"))
 
-(raw_pointer_type) @type.builtin
+(raw_pointer_type "rawptr" @type.builtin)
 (str_type) @type.builtin
 
 (function_declaration
