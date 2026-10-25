@@ -43,7 +43,6 @@
   (comptime)
   (move)
   (iface)
-  (from)
 ] @keyword
 
 [
@@ -260,5 +259,5 @@
   "import" "type" "const" "let" "mut" "fn"
   "struct" "iface" "enum" "union" "error"
   "if" "else" "match" "for" "in" "is" "with"
-  "break" "continue" "return" "comptime" "move" "from"
+  "break" "continue" "return" "comptime" "move"
   "catch" "orelse" "as" "defer" "panic" "unsafe"))
