@@ -149,6 +149,9 @@
 (str_type) @type.builtin
 
 (function_declaration
+  owner: (identifier) @type)
+
+(function_declaration
   name: (identifier) @function)
 
 (interface_method
@@ -209,6 +212,9 @@
 
 (typed_parameter
   name: (identifier) @variable.parameter)
+
+; A special name, not a keyword: tagged as Rust tags its `self`.
+(self) @variable.special
 
 (return_origin_clause
   source: (identifier) @variable.parameter)
