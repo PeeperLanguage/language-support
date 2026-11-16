@@ -31,6 +31,7 @@
   "defer"
   "panic"
   "unsafe"
+  "where"
 ] @keyword
 
 [
@@ -225,6 +226,32 @@
 (type_parameter
   name: (identifier) @type)
 
+(declared_type_parameter
+  "$" @punctuation.special
+  name: (identifier) @type)
+
+; where T: Shape, T: Sized(8): an interface is a type; with arguments, a function.
+(where_item
+  subject: (identifier) @type)
+
+(where_item
+  constraint: (identifier) @type
+  !arguments)
+
+(where_item
+  constraint: (scoped_identifier
+    name: (identifier) @type)
+  !arguments)
+
+(where_item
+  constraint: (identifier) @function
+  arguments: (argument_list))
+
+(where_item
+  constraint: (scoped_identifier
+    name: (identifier) @function)
+  arguments: (argument_list))
+
 (labeled_statement
   label: (identifier) @label)
 
@@ -271,4 +298,4 @@
   "struct" "iface" "enum" "union" "error"
   "if" "else" "match" "for" "in" "is" "with"
   "break" "continue" "return" "comptime" "move"
-  "catch" "orelse" "as" "defer" "panic" "unsafe"))
+  "catch" "orelse" "as" "defer" "panic" "unsafe" "where"))
