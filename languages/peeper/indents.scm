@@ -3,6 +3,7 @@
   (parameter_list)
   (argument_list)
   (type_parameter_list)
+  (where_clause)
   (type_argument_list)
   (struct_declaration)
   (interface_declaration)

@@ -123,6 +123,15 @@
   (scoped_identifier
     name: (identifier) @type))
 
+; Box::<i32>.{} and Box::<i32>::new: the name given types is a type.
+(struct_literal
+  type: (generic_path
+    name: [(identifier) (scoped_identifier name: (identifier))] @type))
+
+(scoped_identifier
+  scope: (generic_path
+    name: [(identifier) (scoped_identifier name: (identifier))] @type))
+
 (scoped_identifier
   scope: (identifier) @type)
 
@@ -169,16 +178,15 @@
   function: (selector_expression
     field: (identifier) @function))
 
-(generic_call_expression
-  function: (identifier) @function)
-
-(generic_call_expression
-  function: (scoped_identifier
+; Max::<i32>(x): a call with the types it is given.
+(call_expression
+  function: (generic_path
     name: (identifier) @function))
 
-(generic_call_expression
-  function: (selector_expression
-    field: (identifier) @function))
+(call_expression
+  function: (generic_path
+    name: (scoped_identifier
+      name: (identifier) @function)))
 
 (ERROR
   (identifier) @function
@@ -224,10 +232,6 @@
   name: (identifier) @variable.parameter)
 
 (type_parameter
-  name: (identifier) @type)
-
-(declared_type_parameter
-  "$" @punctuation.special
   name: (identifier) @type)
 
 ; where T: Shape, T: Sized(8): an interface is a type; with arguments, a function.
@@ -278,7 +282,7 @@
     name: (identifier) @constructor))
 
 (expression/scoped_identifier
-  scope: [(generic_type) (scoped_identifier)]
+  scope: [(generic_type) (generic_path) (scoped_identifier)]
   name: (identifier) @constructor)
 
 (variant_pattern
